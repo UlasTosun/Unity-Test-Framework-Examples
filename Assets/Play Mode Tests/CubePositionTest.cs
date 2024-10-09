@@ -6,6 +6,7 @@ using UnityEngine.TestTools;
 
 
 
+[TestFixture]
 public class CubePositionTest {
 
     private GameObject _gameObject;

@@ -1,13 +1,15 @@
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
+using UnityEditor.SceneManagement;
 
 
 
 [TestFixture]
-public class MyMonoBehaviourTest {
+public class MainCameraTest {
+
+    private Camera _mainCamera;
 
 
 
@@ -15,17 +17,19 @@ public class MyMonoBehaviourTest {
     // A [UnitySetUp] behaves like a coroutine in Play Mode. In Edit Mode you can use `yield return null;` to skip a frame.
     [UnitySetUp]
     public IEnumerator Setup() {
-        yield return new EnterPlayMode(); // make sure we are in play mode
-        SceneManager.LoadScene("SampleScene"); // load the scene we want to test
-        yield return new WaitForSeconds(0.5f); // make sure the scene is loaded
+        EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity", OpenSceneMode.Single);
+        yield return null; // skip a frame
+
+        _mainCamera = EditModeTestBridge.Instance.MainCamera;
     }
 
 
 
     // A [UnityTest] behaves like a coroutine in Play Mode. In Edit Mode you can use `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator PositionTestWithEnumeratorPasses() {
-        yield return new MonoBehaviourTest<MyMonoBehaviourToTest>(); // Run the test
+    public IEnumerator CameraNullTest() {
+        yield return null; // skip a frame
+        Assert.AreNotEqual(null, _mainCamera);
     }
 
 
