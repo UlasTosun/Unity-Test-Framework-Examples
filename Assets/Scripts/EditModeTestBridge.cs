@@ -7,7 +7,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class EditModeTestBridge : Singleton<EditModeTestBridge> {
 
-    [field: SerializeField]
-    public Camera MainCamera { get; private set; }
+    // Add objects that are needed for edit mode tests here.
+    [field: SerializeField] public Camera MainCamera { get; private set; }
 
 }
