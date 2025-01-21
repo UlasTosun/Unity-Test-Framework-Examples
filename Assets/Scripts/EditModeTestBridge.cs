@@ -8,6 +8,6 @@ using UnityEngine;
 public class EditModeTestBridge : Singleton<EditModeTestBridge> {
 
     // Add objects that are needed for edit mode tests here.
-    [field: SerializeField] public Camera MainCamera { get; private set; }
+    [field: SerializeField] public Light Light { get; private set; }
 
 }
