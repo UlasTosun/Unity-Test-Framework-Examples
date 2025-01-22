@@ -7,7 +7,7 @@ using UnityEngine.TestTools;
 
 
 [TestFixture]
-public class MyMonoBehaviourTest {
+public class PlayModeTestExampleWithMonoBehaviourTest {
 
 
 
@@ -16,15 +16,19 @@ public class MyMonoBehaviourTest {
     [UnitySetUp]
     public IEnumerator Setup() {
         SceneManager.LoadScene("SampleScene"); // load the scene we want to test
-        yield return new WaitForSeconds(0.5f); // make sure the scene is loaded
+
+        // Wait for two frames to allow the scene to load
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
     }
 
 
 
     // A [UnityTest] behaves like a coroutine in Play Mode. In Edit Mode you can use `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator PositionTestWithEnumeratorPasses() {
-        yield return new MonoBehaviourTest<MyMonoBehaviourToTest>(); // Run the test
+    public IEnumerator MoveWithArrowsPressSpaceToTestPosition_ShouldNotBeAtOrigin() {
+        yield return new MonoBehaviourTest<MonoBehaviourToTest>(); // Run the test
     }
 
 

@@ -7,7 +7,7 @@ using UnityEngine.TestTools;
 
 
 [TestFixture]
-public class CubePositionTest {
+public class PlayModeTestExampleWithBridge {
 
     private GameObject _gameObject;
 
@@ -18,7 +18,10 @@ public class CubePositionTest {
     [UnitySetUp]
     public IEnumerator Setup() {
         SceneManager.LoadScene("SampleScene"); // load the scene we want to test
-        yield return new WaitForSeconds(0.5f); // make sure the scene is loaded
+
+        // Wait for two frames to allow the scene to load
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
 
         _gameObject = PlayModeTestBridge.Instance.Cube;
     }
@@ -27,9 +30,9 @@ public class CubePositionTest {
 
     // A [UnityTest] behaves like a coroutine in Play Mode. In Edit Mode you can use `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator CubePositionTestWithEnumeratorPasses() {
+    public IEnumerator PressSpaceToTestPosition_ShouldBeAtOrigin() {
         yield return WaitForInput();
-        Assert.AreEqual(new Vector3(0, 0, 0), _gameObject.transform.position);
+        Assert.AreEqual(Vector3.zero, _gameObject.transform.position, "Position should be at the origin.");
     }
 
 
