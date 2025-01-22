@@ -1,0 +1,16 @@
+{
+    "name": "Example.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f1184d17b97c53e4388c625859e5286e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

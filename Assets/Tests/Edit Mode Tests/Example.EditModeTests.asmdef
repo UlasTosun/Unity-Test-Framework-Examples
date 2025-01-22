@@ -1,12 +1,15 @@
 {
-    "name": "PlayModeTests",
+    "name": "Example.EditModeTests",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Default"
+        "Example.Scripts",
+        "Example.Tests"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
